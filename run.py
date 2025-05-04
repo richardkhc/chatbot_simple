@@ -9,7 +9,7 @@ def run_services():
     script_dir = Path(__file__).parent.absolute()
     
     # Start the backend server
-    backend_cmd = [sys.executable, str(script_dir / "backend.py")]
+    backend_cmd = [sys.executable, str(script_dir / "src" / "backend" / "main.py")]
     backend_process = subprocess.Popen(
         backend_cmd,
         stdout=subprocess.PIPE,
@@ -21,7 +21,7 @@ def run_services():
     time.sleep(2)
     
     # Start the Streamlit frontend
-    frontend_cmd = ["streamlit", "run", str(script_dir / "frontend.py")]
+    frontend_cmd = ["streamlit", "run", str(script_dir / "src" / "frontend" / "main.py")]
     frontend_process = subprocess.Popen(
         frontend_cmd,
         stdout=subprocess.PIPE,
